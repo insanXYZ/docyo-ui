@@ -5,6 +5,6 @@ import './main.css'
 
 createRoot(document.getElementById('root')!).render(
   <BrowserRouter>
-    <Router/>
+    <Router />
   </BrowserRouter>
 )

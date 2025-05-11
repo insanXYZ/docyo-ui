@@ -1,7 +1,17 @@
-import { SidebarProvider } from "../ui/sidebar";
+import {
+  Sidebar,
+  SidebarContent,
+} from "../ui/sidebar";
+
 
 export default function Leftbar() {
-    return (
-        <></>
-    )
+  return (
+    <Sidebar>
+      <SidebarContent>
+
+      </SidebarContent>
+    </Sidebar>
+  );
 }
+
+
