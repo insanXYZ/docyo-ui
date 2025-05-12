@@ -4,7 +4,11 @@ import Leftbar from "@/components/organisms/leftbar";
 import Topbar from "@/components/organisms/topbar";
 
 
-export default function Layout() {
+interface Layout {
+  leftbar: string,
+}
+
+export default function Layout(props: Layout) {
   return (
     <SidebarProvider>
       <Leftbar />
