@@ -1,0 +1,36 @@
+{
+  "sidebar": {
+    "logo": "path to logo",
+    "contents": [
+      {
+        "type": "enum",
+        "label": "projects",
+        "menus": [
+          {
+            "url": "url string",
+            "label": "getting started",
+            "status_code": 200
+          }
+        ]
+      }
+    ]
+  },
+  "topbar": {
+    "search": true,
+    "logo": "path to logo",
+    "contents": [
+      {
+        "label": "docs",
+        "url": "url string"
+      }
+    ]
+  },
+  "pages": {
+    "url": [
+      {
+        "type": "enum type component",
+        "val": "paragraf or image link"
+      }
+    ]
+  }
+}
