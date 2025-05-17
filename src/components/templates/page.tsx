@@ -1,11 +1,11 @@
-import type { Contents } from "../organisms/content-page";
-import Content from "../organisms/content-page";
+import type { ContentPage as ArrContentPage } from "@/types";
+import ContentPage from "../organisms/content-page";
 
-export default function Page({ contents }: Contents) {
+export default function Page(props: ArrContentPage[]) {
   return (
     <div className="w-full flex items-center">
       <div className="w-[65%] flex flex-col gap-2">
-        <Content contents={contents} />
+        <ContentPage contents={props} />
       </div>
     </div >
   )

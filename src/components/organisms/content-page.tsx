@@ -1,17 +1,17 @@
-import { GetComponentContent } from "@/utils/content"
+import type { ContentPage as ListContentPage } from "@/types"
+import { GetFuncContentPage } from "@/utils/page"
 
-export default function Content({ contents }: Contents) {
+export default function ContentPage({ contents }: { contents: ListContentPage[] }) {
   return (
     <>
       {contents.map((v) => {
         try {
-          let f = GetComponentContent(v.type)
-          f(v.val)
+          let f = GetFuncContentPage(v.type)
+          f(v.value)
         } catch (error) {
           null
         }
       })}
-
     </>
   )
 }

@@ -8,17 +8,17 @@ export enum EnumSidebarWrapperContent {
 export interface SidebarMenu {
   url: string,
   label: string,
-  status_code: number,
+  status_code?: number,
 }
 
 export interface SidebarContent {
   type: EnumSidebarWrapperContent,
-  label: string,
-  menus: SidebarMenu[]
+  label?: string,
+  menus?: SidebarMenu[]
 }
 
 export interface Sidebar {
-  logo: string,
+  logo?: string,
   contents: SidebarContent[]
 }
 // Topbar
@@ -28,9 +28,9 @@ export interface TopbarContent {
 }
 
 export interface Topbar {
-  search: boolean,
+  search?: boolean,
   logo?: string,
-  contents: TopbarContent[]
+  contents?: TopbarContent[]
 }
 
 // Pages
@@ -42,19 +42,19 @@ export enum EnumPageComponent {
   Paragraf
 }
 
-export interface Page {
+export interface ContentPage {
   type: EnumPageComponent,
   value: string,
 }
 
 export interface Pages {
-  [url: string]: Page[]
+  [url: string]: ContentPage[]
 }
 
 // Main
 export interface Docyo {
   sidebar: Sidebar,
   topbar: Topbar,
-  pages: Pages,
+  pages?: Pages,
 }
 

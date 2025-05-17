@@ -9,7 +9,7 @@ export default function Layout({ leftbar, topbar }: { leftbar: Sidebar, topbar: 
     <SidebarProvider>
       <Leftbar leftbar={leftbar} />
       <SidebarInset>
-        <Topbar />
+        <Topbar {...topbar} />
         <Outlet />
       </SidebarInset>
     </SidebarProvider>

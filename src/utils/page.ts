@@ -5,24 +5,24 @@ import Image from "@/components/moleculs/image";
 import Paragraf from "@/components/moleculs/paragraf";
 
 
-let ComponentContent = new Map<TypeContent, (v: string) => JSX.Element>()
-ComponentContent.set(TypeContent.Header, Header)
-ComponentContent.set(TypeContent.HeaderSmall, HeaderSmall)
-ComponentContent.set(TypeContent.HeaderMedium, HeaderMedium)
-ComponentContent.set(TypeContent.Image, Image)
-ComponentContent.set(TypeContent.Paragraf, Paragraf)
+let ContentPage = new Map<TypeContent, (v: string) => JSX.Element>()
+ContentPage.set(TypeContent.Header, Header)
+ContentPage.set(TypeContent.HeaderSmall, HeaderSmall)
+ContentPage.set(TypeContent.HeaderMedium, HeaderMedium)
+ContentPage.set(TypeContent.Image, Image)
+ContentPage.set(TypeContent.Paragraf, Paragraf)
 
 
 function isValidTypeContent(value: number): boolean {
   return Object.values(TypeContent).includes(value)
 }
 
-function GetComponentContent(t: number): (v: string) => JSX.Element {
+function GetFuncContentPage(t: number): (v: string) => JSX.Element {
   if (!isValidTypeContent(t)) {
     throw new Error(`Invalid TypeContent value: ${t}`)
   }
 
-  const component = ComponentContent.get(t)
+  const component = ContentPage.get(t)
   if (!component) {
     throw new Error(`Component not found for type: ${t}`)
   }
@@ -30,4 +30,4 @@ function GetComponentContent(t: number): (v: string) => JSX.Element {
   return component
 }
 
-export { GetComponentContent }
+export { GetFuncContentPage }

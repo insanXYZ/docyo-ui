@@ -1,13 +1,14 @@
-import type { SidebarContent, SidebarMenu } from "@/types"
-import { SidebarMenuButton, SidebarMenuItem } from "../ui/sidebar"
+import type { SidebarContent, SidebarMenu as SidebarMenuProps } from "@/types"
+import { SidebarGroupContent, SidebarMenu, SidebarMenuButton, SidebarMenuItem } from "../ui/sidebar"
 import Group from "./leftbar-group"
 import { Link } from "react-router"
 
 export default function GroupApiMenu({ content }: { content: SidebarContent }) {
-  function rowComp(d: SidebarMenu) {
+  function rowComp(d: SidebarMenuProps) {
     var color: string
+    var statusCode: number = d.status_code ?? 200
 
-    if (d.status_code > 400) {
+    if (statusCode > 400) {
       color = "bg-red-500"
     } else {
       color = "bg-green-500"
@@ -15,21 +16,27 @@ export default function GroupApiMenu({ content }: { content: SidebarContent }) {
 
     return (
       <Link to={d.url}>
-        <div className={`px-1 py-2 rounded-xl text-white ${color}`}></div>
+        <div className={`py-1 px-3 rounded-md text-white ${color}`}>{statusCode}</div>
         <div>{d.label}</div>
       </Link>
     )
   }
 
   return (
-    <Group label={content.label}>
-      {content.menus?.map(v => (
-        <SidebarMenuItem key={v.label} >
-          <SidebarMenuButton asChild>
-            {rowComp(v)}
-          </SidebarMenuButton>
-        </SidebarMenuItem>
-      ))}
+    <Group label={content.label} key={Math.random()} >
+      <SidebarGroupContent>
+        <SidebarMenu>
+          {
+            content.menus?.map(v => (
+              <SidebarMenuItem key={v.label} >
+                <SidebarMenuButton asChild>
+                  {rowComp(v)}
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+            ))
+          }
+        </SidebarMenu>
+      </SidebarGroupContent>
     </Group >
   )
 }
